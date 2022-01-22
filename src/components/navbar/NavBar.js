@@ -1,5 +1,7 @@
 import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 
+import CartWidget from "../cartwidget/CartWidget";
+
 const NavBar = () => {
   return (
     <Navbar bg="light" expand="lg">
@@ -17,6 +19,9 @@ const NavBar = () => {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Kits</NavDropdown.Item>
             </NavDropdown>
+          </Nav>
+          <Nav className="justify-content-end">
+            <CartWidget />
           </Nav>
         </Navbar.Collapse>
       </Container>
