@@ -1,9 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-import { ClassComponent } from "./components/class-component/ClassComponent";
-import FunctionalComponent from "./components/funtion-component/FunctionalComponent";
-import ItemListContainer from "./components/itemlistcontainer/ItemListContainer";
+import ItemListContainer from "./components/itemListContainer/ItemListContainer";
 import NavBar from "./components/navbar/NavBar";
 
 function App() {
@@ -11,8 +9,6 @@ function App() {
     <div className="App">
       <NavBar />
       <ItemListContainer />
-      <ClassComponent />
-      <FunctionalComponent />
     </div>
   );
 }

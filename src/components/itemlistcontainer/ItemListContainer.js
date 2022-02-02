@@ -36,6 +36,9 @@ const ItemListContainer = () => {
           <h3>Producto seleccionado </h3>
           <p>{selectedItem && selectedItem.name}</p>
           <p>{selectedItem && selectedItem.description}</p>
+          {selectedItem && selectedItem.image && (
+            <img src={selectedItem.image} alt="selectedItemImage" />
+          )}
           <p>ID: {selectedItem && selectedItem.id}</p>
           <p>STOCK seleccionado: {selectedItem && selectedItem.stock}</p>
         </Col>
