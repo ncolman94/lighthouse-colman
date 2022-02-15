@@ -3,7 +3,7 @@ import "./NavBar.css";
 import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 
-import CartWidget from "../cartWidget/CartWidget";
+import { Cart } from "react-bootstrap-icons";
 
 const NavBar = () => {
   return (
@@ -64,7 +64,7 @@ const NavBar = () => {
             </NavDropdown>
           </Nav>
           <NavLink to="/cart" className="justify-content-end">
-            <CartWidget />
+            <Cart />
           </NavLink>
         </Navbar.Collapse>
       </Container>

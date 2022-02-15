@@ -1,3 +1,4 @@
+import { Button, FormControl, InputGroup } from "react-bootstrap";
 import React, { useContext, useEffect, useState } from "react";
 
 import { CartContext } from "../../context/CartContext";
@@ -44,10 +45,14 @@ const ItemDetailContainer = () => {
       <p>STOCK seleccionado: {selectedItem && selectedItem.stock}</p>
       <ItemCounter
         stock={selectedItem?.stock || 10}
-        setSotckSelected={setQuantity}
+        setStockSelected={setQuantity}
       />
-      <input onChange={handleUserName} value={userName} />
-      <button onClick={handleAddToCart}>Agregar al carrito</button>
+      <InputGroup className="mb-3">
+        <FormControl onChange={handleUserName} value={userName} />
+        <Button variant="outline-success" onClick={handleAddToCart}>
+          Agregar al carrito
+        </Button>
+      </InputGroup>
     </div>
   );
 };
