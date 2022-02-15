@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
+import { CartContext } from "../../context/CartContext";
+import ItemCounter from "../itemCounter/ItemCounter";
 import { useParams } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
 
 const ItemDetailContainer = () => {
   const { products } = useProducts();
   const { id } = useParams();
+  const { addItem } = useContext(CartContext);
 
   const [selectedItem, setSelectedItem] = useState(null);
+  const [quantity, setQuantity] = useState(0);
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     if (products.length > 0) {
@@ -15,6 +20,17 @@ const ItemDetailContainer = () => {
       setSelectedItem(selectedProduct);
     }
   }, [products]);
+
+  const handleAddToCart = () => {
+    addItem({
+      item: selectedItem,
+      quantity,
+    });
+  };
+
+  const handleUserName = (event) => {
+    setUserName(event.target.value);
+  };
 
   return (
     <div>
@@ -26,6 +42,12 @@ const ItemDetailContainer = () => {
       <p>{selectedItem && selectedItem.description}</p>
       <p>ID: {selectedItem && selectedItem.id}</p>
       <p>STOCK seleccionado: {selectedItem && selectedItem.stock}</p>
+      <ItemCounter
+        stock={selectedItem?.stock || 10}
+        setSotckSelected={setQuantity}
+      />
+      <input onChange={handleUserName} value={userName} />
+      <button onClick={handleAddToCart}>Agregar al carrito</button>
     </div>
   );
 };

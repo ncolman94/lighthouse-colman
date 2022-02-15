@@ -1,3 +1,5 @@
+import "./NavBar.css";
+
 import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 
@@ -61,9 +63,9 @@ const NavBar = () => {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Nav className="justify-content-end">
+          <NavLink to="/cart" className="justify-content-end">
             <CartWidget />
-          </Nav>
+          </NavLink>
         </Navbar.Collapse>
       </Container>
     </Navbar>
